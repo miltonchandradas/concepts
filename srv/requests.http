@@ -1,0 +1,11 @@
+### GET Employees
+GET http://localhost:4004/service/demo/Employees
+
+
+### GET Departments
+GET http://localhost:4004/service/demo/Departments
+
+
+### GET Departments Expand Employees
+GET http://localhost:4004/service/demo/Departments?$expand=employees
+
