@@ -53,17 +53,13 @@ module.exports = (srv) => {
       // return entry;
    });
 
-   srv.on("scheduledTask", async () => {
-      await UPDATE(Employees).with({ experience: { "+=": 1 } });
-      return true;
-   });
-
    srv.on("some event", (msg) => console.log("1st listener received:", msg));
 
    srv.on("some event", (msg) => console.log("2nd listener received:", msg));
 
    cds.spawn({ user: privileged, every: 5000 }, async () => {
-      // srv.emit("scheduledTask");
-      // await srv.emit("some event", { foo: 11, bar: "12" });
+      console.log("Running scheduled task every 5 seconds...");
+      await UPDATE(Employees).with({ experience: { "+=": 1 } });
+      return true;
    });
 };
