@@ -52,13 +52,9 @@ module.exports = (srv) => {
       // return entry;
    });
 
-   srv.on("scheduledTask", async (req) => {
-
-      await UPDATE(Employees).with({ experience: {'+=': 1} });
+   cds.spawn({ user: privileged, every: 5000 }, async () => {
+      console.log("Running scheduled task every 5 seconds...");
+      await UPDATE(Employees).with({ experience: { "+=": 1 } });
       return true;
    });
-
-   cds.spawn({ user: privileged, every: 5000 }, () => {
-      srv.emit("scheduledTask");
-    });
 };
