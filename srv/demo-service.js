@@ -1,4 +1,5 @@
 const cds = require("@sap/cds");
+const { v4: uuidv4 } = require("uuid");
 
 module.exports = (srv) => {
    const { Employees, Departments } = srv.entities;
@@ -33,5 +34,20 @@ module.exports = (srv) => {
       //          employee.name;
       //       });
       // });
+   });
+
+   srv.on("CREATE", Employees, async (req, next) => {
+      await next();
+   });
+
+   srv.on("CREATE", Departments, async (req, next) => {
+      await next();
+
+      // let { name } = req.data;
+      // let { ID } = uuidv4();
+      // let entry = { ID, name };
+      // await INSERT.into(Departments).entries(entry);
+
+      // return entry;
    });
 };

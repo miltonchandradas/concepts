@@ -6,6 +6,15 @@ Authorization: Basic bWlsdG9uOjEyMzQ=
 GET http://localhost:4004/service/demo/Departments
 Authorization: Basic bWlsdG9uOjEyMzQ=
 
+### POST Departments
+POST http://localhost:4004/service/demo/Departments
+Authorization: Basic bWlsdG9uOjEyMzQ=
+Content-Type: application/json
+
+{
+    "name": "Math"
+}
+
 ### GET Departments Expand Employees
 GET http://localhost:4004/service/demo/Departments?$expand=employees
 Authorization: Basic bWlsdG9uOjEyMzQ=
@@ -17,6 +26,15 @@ Authorization: Basic bWlsdG9uOjEyMzQ=
 ### GET Departments V2
 GET http://localhost:4004/v2/service/demo/Departments
 Authorization: Basic bWlsdG9uOjEyMzQ=
+
+### POST Departments
+POST http://localhost:4004/v2/service/demo/Departments
+Authorization: Basic bWlsdG9uOjEyMzQ=
+Content-Type: application/json
+
+{
+    "name": "Math"
+}
 
 ### GET Departments Expand Employees V2
 GET http://localhost:4004/v2/service/demo/Departments?$expand=employees
