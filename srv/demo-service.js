@@ -13,6 +13,7 @@ module.exports = (srv) => {
       await next();
 
       // return SELECT.from(Employees);
+
    });
 
    srv.on("READ", Departments, async (req, next) => {
@@ -52,13 +53,17 @@ module.exports = (srv) => {
       // return entry;
    });
 
-   srv.on("scheduledTask", async (req) => {
-
-      await UPDATE(Employees).with({ experience: {'+=': 1} });
+   srv.on("scheduledTask", async () => {
+      await UPDATE(Employees).with({ experience: { "+=": 1 } });
       return true;
    });
 
-   cds.spawn({ user: privileged, every: 5000 }, () => {
-      srv.emit("scheduledTask");
-    });
+   srv.on("some event", (msg) => console.log("1st listener received:", msg));
+
+   srv.on("some event", (msg) => console.log("2nd listener received:", msg));
+
+   cds.spawn({ user: privileged, every: 5000 }, async () => {
+      // srv.emit("scheduledTask");
+      // await srv.emit("some event", { foo: 11, bar: "12" });
+   });
 };
