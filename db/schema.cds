@@ -4,6 +4,7 @@ using {cuid} from '@sap/cds/common';
 
 entity Employees : cuid {
     name       : String;
+    experience : Integer default 0;
     department : Association to Departments;
 }
 

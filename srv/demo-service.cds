@@ -7,4 +7,5 @@ service DemoService {
 
     entity Employees as select from demo.Employees;
 
+    function scheduledTask() returns Boolean;
 }

@@ -1,5 +1,6 @@
 const cds = require("@sap/cds");
 const { v4: uuidv4 } = require("uuid");
+const privileged = new cds.User.Privileged();
 
 module.exports = (srv) => {
    const { Employees, Departments } = srv.entities;
@@ -50,4 +51,14 @@ module.exports = (srv) => {
 
       // return entry;
    });
+
+   srv.on("scheduledTask", async (req) => {
+
+      await UPDATE(Employees).with({ experience: {'+=': 1} });
+      return true;
+   });
+
+   cds.spawn({ user: privileged, every: 5000 }, () => {
+      srv.emit("scheduledTask");
+    });
 };
