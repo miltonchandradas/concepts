@@ -13,7 +13,6 @@ module.exports = (srv) => {
       await next();
 
       // return SELECT.from(Employees);
-
    });
 
    srv.on("READ", Departments, async (req, next) => {
@@ -59,7 +58,9 @@ module.exports = (srv) => {
 
    cds.spawn({ user: privileged, every: 5000 }, async () => {
       console.log("Running scheduled task every 5 seconds...");
-      await UPDATE(Employees).with({ experience: { "+=": 1 } });
-      return true;
+      // await UPDATE(Employees).with({ experience: { "+=": 1 } });
+      // return true;
+
+      await srv.emit("some event", { foo: 11, bar: "12" });
    });
 };
