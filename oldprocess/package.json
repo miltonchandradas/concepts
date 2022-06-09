@@ -1,0 +1,55 @@
+{
+   "name": "oldprocess",
+   "version": "1.0.0",
+   "description": "A simple CAP project.",
+   "repository": "<Add your repository here>",
+   "license": "UNLICENSED",
+   "private": true,
+   "dependencies": {
+      "@sap/cds": "^5",
+      "@sap/cds-odata-v2-adapter-proxy": "^1.8.19",
+      "express": "^4",
+      "uuid": "^8.3.2"
+   },
+   "devDependencies": {
+      "sqlite3": "^5.0.2"
+   },
+   "scripts": {
+      "start": "cds run"
+   },
+   "eslintConfig": {
+      "extends": "eslint:recommended",
+      "env": {
+         "es2020": true,
+         "node": true,
+         "jest": true,
+         "mocha": true
+      },
+      "globals": {
+         "SELECT": true,
+         "INSERT": true,
+         "UPDATE": true,
+         "DELETE": true,
+         "CREATE": true,
+         "DROP": true,
+         "CDL": true,
+         "CQL": true,
+         "CXL": true,
+         "cds": true
+      },
+      "rules": {
+         "no-console": "off",
+         "require-atomic-updates": "off"
+      }
+   },
+   "cds": {
+      "requires": {
+         "db": {
+            "kind": "sql"
+         },
+         "messaging": {
+            "kind": "file-based-messaging"
+         }
+      }
+   }
+}

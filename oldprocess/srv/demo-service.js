@@ -11,8 +11,9 @@ module.exports = (srv) => {
 
    srv.on("READ", Employees, async (req, next) => {
       await srv.emit("demoEvent", { foo: 11, bar: "12" });
+
       await next();
-      
+        
       // return SELECT.from(Employees);
    });
 

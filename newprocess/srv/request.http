@@ -1,0 +1,2 @@
+### FUNCTION scheduledTask
+GET http://localhost:63117/newservice/someFunction()
