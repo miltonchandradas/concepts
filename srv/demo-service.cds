@@ -7,4 +7,9 @@ service DemoService {
 
     entity Employees as select from demo.Employees;
 
+    event demoEvent: {
+        foo: Integer;
+        bar: String;
+    }
+
 }

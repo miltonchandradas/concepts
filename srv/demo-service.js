@@ -10,8 +10,9 @@ module.exports = (srv) => {
    });
 
    srv.on("READ", Employees, async (req, next) => {
+      await srv.emit("demoEvent", { foo: 11, bar: "12" });
       await next();
-
+      
       // return SELECT.from(Employees);
    });
 
@@ -56,11 +57,16 @@ module.exports = (srv) => {
 
    srv.on("some event", (msg) => console.log("2nd listener received:", msg));
 
+   srv.on("demoEvent", (msg) =>
+      console.log("1st listener received:", msg)
+   );
+
    cds.spawn({ user: privileged, every: 5000 }, async () => {
-      console.log("Running scheduled task every 5 seconds...");
+      // console.log("Running scheduled task every 5 seconds...");
       // await UPDATE(Employees).with({ experience: { "+=": 1 } });
       // return true;
 
-      await srv.emit("some event", { foo: 11, bar: "12" });
+      // await srv.emit("some event", { foo: 11, bar: "12" });
+      
    });
 };

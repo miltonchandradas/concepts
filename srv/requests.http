@@ -44,3 +44,8 @@ Content-Type: application/json
 ### GET Departments Expand Employees V2
 GET http://localhost:4004/v2/service/demo/Departments?$expand=employees
 Authorization: Basic bWlsdG9uOjEyMzQ=
+
+
+### FUNCTION getName
+GET http://localhost:4004/v2/service/another/getName()
+Authorization: Basic bWlsdG9uOjEyMzQ=
