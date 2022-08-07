@@ -8,7 +8,6 @@ module.exports = (srv) => {
    srv.before("*", (req) => {
       // let results = {};
       // results.user = req.user.id;
-
       // if (req.user.hasOwnProperty("locale")) {
       //    results.locale = req.user.locale;
       // }
@@ -23,13 +22,13 @@ module.exports = (srv) => {
    srv.on("READ", Employees, async (req, next) => {
       await next();
 
-      // return SELECT.from(Employees);
+      // return await SELECT.from(Employees);
    });
 
    srv.on("READ", Departments, async (req, next) => {
       await next();
 
-      // return SELECT.from(Departments);
+      // return await SELECT.from(Departments);
 
       // if (!req.query.SELECT.columns)
       //    return await next();
@@ -40,7 +39,7 @@ module.exports = (srv) => {
 
       // if (expandIndex < 0) return await next();
 
-      // return SELECT.from(Departments, (department) => {
+      // return await SELECT.from(Departments, (department) => {
       //    department.name,
       //       department.employees((employee) => {
       //          employee.name;
