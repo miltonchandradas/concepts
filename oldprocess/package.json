@@ -6,10 +6,10 @@
    "license": "UNLICENSED",
    "private": true,
    "dependencies": {
-      "@sap/cds": "^5",
-      "@sap/cds-odata-v2-adapter-proxy": "^1.8.19",
+      "@sap/cds": "^6.6.1",
+      "@sap/cds-odata-v2-adapter-proxy": "^1.9.20",
       "express": "^4",
-      "uuid": "^8.3.2"
+      "uuid": "^9.0.0"
    },
    "devDependencies": {
       "sqlite3": "^5.0.2"

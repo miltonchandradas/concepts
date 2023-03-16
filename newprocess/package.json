@@ -7,7 +7,7 @@
    "private": true,
    "dependencies": {
       "@milton/oldprocess": "../oldprocess",
-      "@sap/cds": "^5",
+      "@sap/cds": "^6.6.1",
       "express": "^4"
    },
    "devDependencies": {
