@@ -5,12 +5,15 @@
   "repository": "<Add your repository here>",
   "license": "UNLICENSED",
   "private": true,
+  "engines": {
+    "node": "^18.x"
+  },
   "dependencies": {
     "@sap/cds": "^6.6.1",
     "express": "^4"
   },
   "devDependencies": {
-    "sqlite3": "^5.0.2"
+    "sqlite3": "^5.1.6"
   },
   "scripts": {
     "start": "cds run"
