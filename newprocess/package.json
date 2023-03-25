@@ -1,58 +1,58 @@
 {
-   "name": "newprocess",
-   "version": "1.0.0",
-   "description": "A simple CAP project.",
-   "repository": "<Add your repository here>",
-   "license": "UNLICENSED",
-   "private": true,
-   "dependencies": {
-      "@milton/oldprocess": "../oldprocess",
-      "@sap/cds": "^6.6.1",
-      "express": "^4"
-   },
-   "devDependencies": {
-      "sqlite3": "^5.1.6"
-   },
-   "scripts": {
-      "start": "cds run"
-   },
-   "eslintConfig": {
-      "extends": "eslint:recommended",
-      "env": {
-         "es2020": true,
-         "node": true,
-         "jest": true,
-         "mocha": true
+  "name": "newprocess",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@milton/oldprocess": "../oldprocess",
+    "@sap/cds": "^6.6.1",
+    "express": "^4"
+  },
+  "devDependencies": {
+    "sqlite3": "^5.1.6"
+  },
+  "scripts": {
+    "start": "cds run"
+  },
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "env": {
+      "es2020": true,
+      "node": true,
+      "jest": true,
+      "mocha": true
+    },
+    "globals": {
+      "SELECT": true,
+      "INSERT": true,
+      "UPDATE": true,
+      "DELETE": true,
+      "CREATE": true,
+      "DROP": true,
+      "CDL": true,
+      "CQL": true,
+      "CXL": true,
+      "cds": true
+    },
+    "rules": {
+      "no-console": "off",
+      "require-atomic-updates": "off"
+    }
+  },
+  "cds": {
+    "requires": {
+      "DemoService": {
+        "kind": "odata",
+        "model": "../oldprocess/srv/demo-service"
       },
-      "globals": {
-         "SELECT": true,
-         "INSERT": true,
-         "UPDATE": true,
-         "DELETE": true,
-         "CREATE": true,
-         "DROP": true,
-         "CDL": true,
-         "CQL": true,
-         "CXL": true,
-         "cds": true
+      "messaging": {
+        "kind": "file-based-messaging"
       },
-      "rules": {
-         "no-console": "off",
-         "require-atomic-updates": "off"
+      "db": {
+        "kind": "sql"
       }
-   },
-   "cds": {
-      "requires": {
-         "DemoService": {
-            "kind": "odata",
-            "model": "../oldprocess/srv/demo-service"
-         },
-         "messaging": {
-            "kind": "file-based-messaging"
-         },
-         "db": {
-            "kind": "sql"
-         }
-      }
-   }
+    }
+  }
 }
